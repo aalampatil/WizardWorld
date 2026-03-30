@@ -36,7 +36,10 @@ export type Character = {
   };
 };
 
-export const fetchCharacters = async () => {
-  const response = await axios.get("https://api.potterdb.com/v1/characters");
-  return response.data.data;
+export const fetchCharacters = async (page = 1) => {
+  const response = await axios.get(
+    `https://api.potterdb.com/v1/characters?page[number]=${page}`,
+  );
+
+  return response.data;
 };

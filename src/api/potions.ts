@@ -22,7 +22,11 @@ export type Potion = {
   };
 };
 
-export const fetchPotions = async () => {
-  const response = await axios.get("https://api.potterdb.com/v1/potions");
-  return response.data.data;
+export const fetchPotions = async (page = 1) => {
+  const response = await axios.get(
+    `https://api.potterdb.com/v1/potions?page[number]=${page}`,
+  );
+  return response.data;
 };
+
+console.log(fetchPotions());

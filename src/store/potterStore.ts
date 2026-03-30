@@ -11,26 +11,32 @@ type BookStore = {
   fetchBooks: () => Promise<void>;
 };
 
-type SpellStore = {
-  spells: Spell[];
-  setSpells: (spells: Spell[]) => void;
-  fetchSpells: () => Promise<void>;
-};
-
-type PotionStore = {
-  potions: Potion[];
-  setPotions: (potions: Potion[]) => void;
-  fetchPotions: () => Promise<void>;
-};
-
 type Moviestore = {
   movies: Movie[];
   setMovies: (movies: Movie[]) => void;
   fetchMovies: () => Promise<void>;
 };
 
+type SpellStore = {
+  spells: Spell[];
+  setSpells: (spells: Spell[]) => void;
+  page: number;
+  loading: boolean;
+  fetchSpells: () => Promise<void>;
+};
+
+type PotionStore = {
+  potions: Potion[];
+  setPotions: (potions: Potion[]) => void;
+  page: number;
+  loading: boolean;
+  fetchPotions: () => Promise<void>;
+};
+
 type CharacterStore = {
   characters: Character[];
+  page: number;
+  loading: boolean;
   setCharacters: (characters: Character[]) => void;
   fetchCharacters: () => Promise<void>;
 };
@@ -46,24 +52,6 @@ export const useBookStore = create<BookStore>((set) => ({
   },
 }));
 
-export const useSpellStore = create<SpellStore>((set) => ({
-  spells: [],
-  setSpells: (spells) => set({ spells }),
-  fetchSpells: async () => {
-    const spells = await fetchSpells();
-    set({ spells });
-  },
-}));
-
-export const usePotionStore = create<PotionStore>((set) => ({
-  potions: [],
-  setPotions: (potions) => set({ potions }),
-  fetchPotions: async () => {
-    const potions = await fetchPotions();
-    set({ potions });
-  },
-}));
-
 export const useMovieStore = create<Moviestore>((set) => ({
   movies: [],
   setMovies: (movies) => set({ movies }),
@@ -73,25 +61,81 @@ export const useMovieStore = create<Moviestore>((set) => ({
   },
 }));
 
-export const useCharacterStore = create<CharacterStore>((set) => ({
-  characters: [],
-  setCharacters: (characters) => set({ characters }),
-  fetchCharacters: async () => {
-    const characters = await fetchCharacters();
-    set({ characters });
+export const useSpellStore = create<SpellStore>((set, get) => ({
+  spells: [],
+  page: 1,
+  loading: false,
+  setSpells: (spells) => set({ spells }),
+  fetchSpells: async () => {
+    const { page, spells, loading } = get();
+    if (loading) return;
+
+    set({ loading: true });
+    try {
+      const res = await fetchSpells(page);
+
+      set({
+        spells: [...spells, ...res.data],
+        page: page + 1,
+        loading: false,
+      });
+    } catch (error) {
+      console.log("Character fetch error:", error);
+      set({ loading: false });
+    }
   },
 }));
 
-// const { movies, fetchMovies } = useMovieStore()
-//   const { fetchBooks } = useBookStore();
-//   const { fetchCharacters } = useCharacterStore();
-//   const { fetchSpells } = useSpellStore()
-//   const { fetchPotions } = usePotionStore()
+export const usePotionStore = create<PotionStore>((set, get) => ({
+  potions: [],
+  page: 1,
+  loading: false,
+  setPotions: (potions) => set({ potions }),
+  fetchPotions: async () => {
+    const { page, potions, loading } = get();
+    if (loading) return;
 
-//   useEffect(() => {
-//     fetchMovies()
-//     fetchBooks()
-//     fetchCharacters()
-//     fetchSpells()
-//     fetchPotions()
-//   }, [])
+    set({ loading: true });
+    try {
+      const res = await fetchPotions(page);
+
+      set({
+        potions: [...potions, ...res.data],
+        page: page + 1,
+        loading: false,
+      });
+    } catch (error) {
+      console.log("Potion fetch error:", error);
+      set({ loading: false });
+    }
+  },
+}));
+
+export const useCharacterStore = create<CharacterStore>((set, get) => ({
+  characters: [],
+  page: 1,
+  loading: false,
+
+  setCharacters: (characters) => set({ characters }),
+
+  fetchCharacters: async () => {
+    const { page, characters, loading } = get();
+
+    if (loading) return;
+
+    set({ loading: true });
+
+    try {
+      const res = await fetchCharacters(page);
+
+      set({
+        characters: [...characters, ...res.data],
+        page: page + 1,
+        loading: false,
+      });
+    } catch (error) {
+      console.log("Character fetch error:", error);
+      set({ loading: false });
+    }
+  },
+}));

@@ -30,6 +30,6 @@ export type Book = {
 };
 
 export const fetchBooks = async () => {
-  const response = await axios.get("https://api.potterdb.com/v1/books");
+  const response = await axios.get(`https://api.potterdb.com/v1/books`, {});
   return response.data.data;
 };

@@ -29,6 +29,6 @@ export type Movie = {
 };
 
 export const fetchMovies = async () => {
-  const response = await axios.get("https://api.potterdb.com/v1/movies");
+  const response = await axios.get(`https://api.potterdb.com/v1/movies`);
   return response.data.data;
 };

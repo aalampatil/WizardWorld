@@ -20,7 +20,9 @@ export type Spell = {
   };
 };
 
-export const fetchSpells = async () => {
-  const response = await axios.get("https://api.potterdb.com/v1/spells");
-  return response.data.data;
+export const fetchSpells = async (page = 1) => {
+  const response = await axios.get(
+    `https://api.potterdb.com/v1/spells?page[number]=${page}`,
+  );
+  return response.data;
 };
