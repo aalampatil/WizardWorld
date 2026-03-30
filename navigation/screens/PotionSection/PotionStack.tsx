@@ -15,7 +15,7 @@ export default function PotionStack() {
         },
       }}
     >
-      <Stack.Screen name="List Potions" component={PotionScreen} />
+      <Stack.Screen name="List-Potions" component={PotionScreen} />
       <Stack.Screen
         name="Potion"
         component={PotionPage}

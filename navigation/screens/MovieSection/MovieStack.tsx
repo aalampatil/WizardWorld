@@ -17,7 +17,7 @@ export default function MovieStack() {
       }}
     >
       <Stack.Screen
-        name="Listed Movies"
+        name="Listed-Movies"
         component={MoviesScreen}
       />
 

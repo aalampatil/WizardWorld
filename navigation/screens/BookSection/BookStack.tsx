@@ -1,20 +1,33 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-// import { createDrawerNavigator } from '@react-navigation/drawer';
 import BooksScreen from "./BooksScreen";
 import Book from "./Book";
+import { Pressable } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import FilterBooks from "./Filter";
+
 
 const Stack = createNativeStackNavigator();
 
 export default function BooksStack() {
+
   return (
-    <Stack.Navigator screenOptions={{
+    <Stack.Navigator screenOptions={({ navigation }) => ({
       headerShown: true,
       headerStyle: {
         backgroundColor: "#FFD700"
       },
-    }}>
-      <Stack.Screen name="Listed Books" component={BooksScreen} />
+      headerRight: () => (
+        <Pressable
+          onPress={() => navigation.navigate("Filter")}
+          style={{ marginRight: 15 }}
+        >
+          <Ionicons name="search" size={22} color="white" />
+        </Pressable>
+      ),
+    })}>
+      <Stack.Screen name="Listed-Books" component={BooksScreen} />
       <Stack.Screen name="Book" component={Book} />
+      <Stack.Screen name="Filter" component={FilterBooks} />
     </Stack.Navigator>
   );
 }

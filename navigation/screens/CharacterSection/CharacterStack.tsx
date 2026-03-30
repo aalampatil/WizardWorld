@@ -16,7 +16,7 @@ export default function CharacterStack() {
       }}
     >
       <Stack.Screen
-        name="Listed Characters"
+        name="Listed-Characters"
         component={CharactersScreen}
       />
 

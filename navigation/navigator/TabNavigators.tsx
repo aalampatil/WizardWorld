@@ -3,8 +3,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { BlurView } from "expo-blur";
 import { StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import HomeScreen from "../screens/00HomeSection/HomeScreen";
-import SpellsScreen from "../screens/SpellSection/SpellsScreen";
 import { useEffect } from "react";
 import BooksStack from "../screens/BookSection/BookStack";
 import CharacterStack from "../screens/CharacterSection/CharacterStack";
@@ -47,8 +45,8 @@ export default function TabNavigator() {
           borderTopWidth: 0,
           height: 70,
           marginHorizontal: 10,
-          paddingTop: 5,
-          marginBottom: 20,
+          paddingTop: 7,
+          marginBottom: 40,
           borderRadius: 50,
           // elevation: 0,
         },
@@ -62,7 +60,7 @@ export default function TabNavigator() {
         ),
       })}
     >
-      <Tab.Screen name="Hogwarts" component={HomeScreen} options={{}} />
+      <Tab.Screen name="Hogwarts" component={DrawerNavigator} />
       <Tab.Screen name="Movies" component={MovieStack} />
       <Tab.Screen name="Books" component={BooksStack} />
       <Tab.Screen name="Characters" component={CharacterStack} />
@@ -80,6 +78,7 @@ import Animated, {
   withSpring
 } from "react-native-reanimated";
 import PotionStack from "../screens/PotionSection/PotionStack";
+import { DrawerNavigator } from "./DrawerNavigator";
 
 interface Props {
   name: any;

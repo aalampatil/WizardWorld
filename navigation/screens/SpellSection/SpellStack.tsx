@@ -16,7 +16,7 @@ export default function SpellStack() {
       }}
     >
       <Stack.Screen
-        name="List Spells"
+        name="List-Spells"
         component={SpellScreen}
       />
 
