@@ -155,9 +155,9 @@ const HomeScreen = () => {
 
   const { books, fetchBooks } = useBookStore();
   const { movies, fetchMovies } = useMovieStore();
-  const { spells } = useSpellStore();
-  const { potions } = usePotionStore();
-  const { characters } = useCharacterStore();
+  // const { spells } = useSpellStore();
+  // const { potions } = usePotionStore();
+  // const { characters } = useCharacterStore();
 
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const slideAnim = useRef(new Animated.Value(30)).current;
@@ -202,7 +202,7 @@ const HomeScreen = () => {
           ]}
         >
           <Text style={styles.heroEyebrow}>✦ Welcome to</Text>
-          <Text style={styles.heroTitle}>Wizard{"\n"}World</Text>
+          <Text style={styles.heroTitle}>Wizard{"\n"}World 🧙</Text>
           <Text style={styles.heroSubtitle}>
             The complete Potterverse encyclopedia
           </Text>
@@ -322,7 +322,7 @@ const styles = StyleSheet.create({
     paddingBottom: 32,
   },
   heroEyebrow: {
-    color: "#FFD700",
+    color: "#fff",
     fontSize: 13,
     fontWeight: "600",
     letterSpacing: 3,
@@ -332,7 +332,7 @@ const styles = StyleSheet.create({
   heroTitle: {
     fontSize: 64,
     fontWeight: "900",
-    color: "#fff",
+    color: "#FFD700",
     lineHeight: 64,
     letterSpacing: -2,
     marginBottom: 12,

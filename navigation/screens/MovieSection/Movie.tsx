@@ -1,9 +1,4 @@
-import {
-  View,
-  Text,
-  ScrollView,
-  StyleSheet,
-} from "react-native";
+import { View, Text, ScrollView, StyleSheet } from "react-native";
 import React from "react";
 import { Image } from "expo-image";
 
@@ -12,7 +7,12 @@ const Movie = ({ route }: any) => {
   const a = movie.attributes;
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={{
+        paddingBottom: 150,
+      }}
+    >
       {a.poster && (
         <Image
           source={{ uri: a.poster }}
@@ -23,13 +23,9 @@ const Movie = ({ route }: any) => {
 
       <Text style={styles.title}>{a.title}</Text>
 
-      <Text style={styles.info}>
-        Release: {a.release_date}
-      </Text>
+      <Text style={styles.info}>Release: {a.release_date}</Text>
 
-      <Text style={styles.info}>
-        Rating: {a.rating || "N/A"}
-      </Text>
+      <Text style={styles.info}>Rating: {a.rating || "N/A"}</Text>
 
       <Text style={styles.info}>
         Running Time: {a.running_time || "Unknown"}
@@ -45,17 +41,13 @@ const Movie = ({ route }: any) => {
       <Text style={styles.text}>{a.producers.join(", ")}</Text>
 
       <Text style={styles.section}>Music</Text>
-      <Text style={styles.text}>
-        {a.music_composers.join(", ")}
-      </Text>
+      <Text style={styles.text}>{a.music_composers.join(", ")}</Text>
 
       <Text style={styles.section}>Budget</Text>
       <Text style={styles.text}>{a.budget || "Unknown"}</Text>
 
       <Text style={styles.section}>Box Office</Text>
-      <Text style={styles.text}>
-        {a.box_office || "Unknown"}
-      </Text>
+      <Text style={styles.text}>{a.box_office || "Unknown"}</Text>
     </ScrollView>
   );
 };

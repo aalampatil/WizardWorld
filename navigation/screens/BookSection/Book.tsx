@@ -1,4 +1,12 @@
-import { StyleSheet, Text, View, Image, ScrollView, Linking, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  Linking,
+  Pressable,
+} from "react-native";
 import React from "react";
 
 export type Book = {
@@ -22,8 +30,12 @@ const Book = ({ route }: any) => {
   const data = book.attributes;
 
   return (
-    <ScrollView style={styles.container}>
-
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={{
+        paddingBottom: 100,
+      }}
+    >
       <Image source={{ uri: data.cover }} style={styles.cover} />
 
       <View style={styles.content}>
@@ -65,6 +77,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#0f0f14",
+    paddingBottom: 400,
   },
 
   cover: {

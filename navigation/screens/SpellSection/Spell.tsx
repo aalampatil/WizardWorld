@@ -26,7 +26,12 @@ export default function Spell({ route }: any) {
   };
 
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: "#0B0B0B" }}>
+    <ScrollView
+      style={{ flex: 1, backgroundColor: "#0B0B0B" }}
+      contentContainerStyle={{
+        paddingBottom: 100,
+      }}
+    >
       {/* Header */}
       <View>
         <Image
@@ -61,7 +66,6 @@ export default function Spell({ route }: any) {
 
       {/* Content */}
       <View style={{ padding: 20 }}>
-
         <Section title="Incantation" value={data.incantation} />
 
         <Section title="Effect" value={data.effect} />

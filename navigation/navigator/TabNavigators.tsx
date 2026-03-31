@@ -54,7 +54,7 @@ export default function TabNavigator() {
           height: 70,
           marginHorizontal: 10,
           paddingTop: 7,
-          marginBottom: 40,
+          marginBottom: 30,
           borderRadius: 50,
           // elevation: 0,
         },

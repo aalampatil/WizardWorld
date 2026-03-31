@@ -3,7 +3,6 @@ import BooksScreen from "./BooksScreen";
 import Book from "./Book";
 import { Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import FilterBooks from "./Filter";
 
 
 const Stack = createNativeStackNavigator();
@@ -27,7 +26,6 @@ export default function BooksStack() {
     })}>
       <Stack.Screen name="Listed-Books" component={BooksScreen} />
       <Stack.Screen name="Book" component={Book} />
-      <Stack.Screen name="Filter" component={FilterBooks} />
     </Stack.Navigator>
   );
 }

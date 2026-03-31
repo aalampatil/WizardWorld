@@ -37,6 +37,9 @@ export default function Potion({ route }: any) {
   return (
     <ScrollView
       style={{ flex: 1, backgroundColor: "#0B0B0B" }}
+      contentContainerStyle={{
+        paddingBottom: 100,
+      }}
       showsVerticalScrollIndicator={false}
     >
       {/* Image Header */}
