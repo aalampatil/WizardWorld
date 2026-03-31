@@ -49,7 +49,7 @@ export default function Spell({ route }: any) {
         >
           <Text
             style={{
-              color: "white",
+              color: "#FFD700",
               fontSize: 30,
               fontWeight: "800",
             }}

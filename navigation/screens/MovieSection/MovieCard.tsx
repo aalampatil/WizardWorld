@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
 
   info: {
     position: "absolute",
-    top: 510,
+    top: 530,
     paddingHorizontal: 24,
   },
 

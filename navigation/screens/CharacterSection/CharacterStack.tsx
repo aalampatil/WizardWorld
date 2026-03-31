@@ -10,6 +10,7 @@ export default function CharacterStack() {
   return (
     <Stack.Navigator
       screenOptions={{
+        headerShown: false,
         headerStyle: {
           backgroundColor: "#FFD700",
         },

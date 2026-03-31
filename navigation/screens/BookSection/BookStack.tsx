@@ -12,7 +12,7 @@ export default function BooksStack() {
 
   return (
     <Stack.Navigator screenOptions={({ navigation }) => ({
-      headerShown: true,
+      headerShown: false,
       headerStyle: {
         backgroundColor: "#FFD700"
       },

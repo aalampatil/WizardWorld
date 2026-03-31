@@ -28,5 +28,3 @@ export const fetchPotions = async (page = 1) => {
   );
   return response.data;
 };
-
-console.log(fetchPotions());

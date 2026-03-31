@@ -8,6 +8,13 @@ import BooksStack from "../screens/BookSection/BookStack";
 import CharacterStack from "../screens/CharacterSection/CharacterStack";
 import MovieStack from "../screens/MovieSection/MovieStack";
 import SpellStack from "../screens/SpellSection/SpellStack";
+import PotionStack from "../screens/PotionSection/PotionStack";
+import Animated, {
+  useSharedValue,
+  useAnimatedStyle,
+  withSpring
+} from "react-native-reanimated";
+import HomeScreen from "../screens/HomeScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -32,8 +39,9 @@ export default function TabNavigator() {
         tabBarLabelStyle: {
           color: "black"
         },
-        tabBarActiveTintColor: "#00ff1a",
+        tabBarActiveTintColor: "#ff6a00",
         tabBarInactiveTintColor: "black",
+
 
         tabBarBackground: () => (
           <BlurView intensity={0} style={StyleSheet.absoluteFill} tint="dark" />
@@ -60,7 +68,7 @@ export default function TabNavigator() {
         ),
       })}
     >
-      <Tab.Screen name="Hogwarts" component={DrawerNavigator} />
+      <Tab.Screen name="Hogwarts" component={HomeScreen} />
       <Tab.Screen name="Movies" component={MovieStack} />
       <Tab.Screen name="Books" component={BooksStack} />
       <Tab.Screen name="Characters" component={CharacterStack} />
@@ -72,13 +80,7 @@ export default function TabNavigator() {
 
 
 
-import Animated, {
-  useSharedValue,
-  useAnimatedStyle,
-  withSpring
-} from "react-native-reanimated";
-import PotionStack from "../screens/PotionSection/PotionStack";
-import { DrawerNavigator } from "./DrawerNavigator";
+
 
 interface Props {
   name: any;

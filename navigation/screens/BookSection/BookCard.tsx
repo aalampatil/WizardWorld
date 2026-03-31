@@ -35,7 +35,8 @@ const BookCard = ({ book, onPress }: any) => {
             fontSize: 18,
             fontWeight: "600",
             color: "#FFD700",
-            marginBottom: 6
+            marginBottom: 6,
+
           }}
         >
           {attributes.title}
