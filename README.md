@@ -129,13 +129,13 @@ wizardworld/
 ### Prerequisites
 
 - Node.js 18+
-- Expo CLI — `npm install -g expo-cli`
+- Expo — `npm create-expo-app@latest .`
 - iOS Simulator, Android Emulator, or the **Expo Go** app on a physical device
 
 ### Installation
 
 ```bash
-git clone https://github.com/aalampatil/WizardWorld.git
+git clone https://github.com/aalampatil/WizardWorld
 cd WizardWorld
 npm install
 ```
@@ -333,4 +333,4 @@ MIT License — feel free to fork, extend, and ship your own Wizarding World app
 
 ---
 
-<p align="center">Made with ⚡ by <a href="https://github.com/aalampatil">aalampatil</a> · Powered by the WizardWorld API</p>
+<p align="center">Made with <a href="https://github.com/aalampatil">aalampatil</a> · Powered by the WizardWorld API</p>
