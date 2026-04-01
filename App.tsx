@@ -1,10 +1,17 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import { NavigationContainer, useNavigation } from '@react-navigation/native';
+import { StyleSheet } from 'react-native'
+import React, { useState } from 'react'
+import { NavigationContainer } from '@react-navigation/native';
 import TabNavigator from './navigation/navigator/TabNavigators';
-import { DrawerNavigator } from './navigation/navigator/DrawerNavigator';
+import SplashScreen from './navigation/screens/Splash';
+
 
 export default function App() {
+
+  const [showSplash, setShowSplash] = useState(true);
+
+  if (showSplash) {
+    return <SplashScreen onFinish={() => setShowSplash(false)} />;
+  }
 
   return (
     <NavigationContainer>
@@ -15,4 +22,3 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({})

@@ -33,3 +33,21 @@ export const fetchBooks = async () => {
   const response = await axios.get(`https://api.potterdb.com/v1/books`, {});
   return response.data.data;
 };
+
+export type Chapter = {
+  id: string;
+  type: "chapter";
+  attributes: {
+    slug: string;
+    order: number;
+    summary: string | null;
+    title: string;
+  };
+};
+
+export const fetchChapters = async (bookId: string) => {
+  const response = await axios.get(
+    `https://api.potterdb.com/v1/books/${bookId}/chapters`,
+  );
+  return response.data.data as Chapter[];
+};
